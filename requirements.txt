@@ -1,3 +1,5 @@
-tensorflow==1.14.0
-numpy==1.16.6
+# tensorflow==1.14.0
+# numpy==1.16.6
 blobconverter==1.2.7
+Pillow
+openvino-dev==2021.4.2

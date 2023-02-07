@@ -111,7 +111,6 @@ venv.bak/
 
 *.jpg
 *.png
-coco.names
 *.weights
 
 # VSCode
@@ -120,3 +119,14 @@ coco.names
 # Tensorflow
 checkpoint
 *.ckpt.*
+*.pb 
+
+# Darknet 
+*.weights
+*.cfg
+
+# IR
+IR 
+
+# MyriadX
+MyriadX

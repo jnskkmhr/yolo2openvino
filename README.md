@@ -1,5 +1,32 @@
 # Yolo2OpenVINO
 
+## Docker environment
+To work with Tensorflow1, it's better to use Docker container.
+
+### 1 Build docker image & run container
+
+    bash docker/build_image.sh
+    bash run_container.sh
+
+### 2 Download Darknet model 
+download (for example) yolov4-tiny (both .weights, .cfg)
+
+### 3 Convert Darknet to Tensorflow *.pb
+First and second argument is width and height of input image.
+
+    bash convert2pb.sh 640 640
+
+### 4 Convert Tensorflow to OpenVINO IR
+The first argument is path to tensorflow .pb. Affter executing this command, you should see OpenVINO model (.bin, .xml, .mapping) generated under IR/ . 
+
+    bash convert2ir.sh yolov4tiny.pb
+
+### 5 Convert OpenVINO IR to MyriadX blob
+After executing this command, you should see .blob file created under MyriadX/ . 
+
+    python3 convert2blob.py
+
+---
 [![GitHub](https://img.shields.io/github/license/luxonis/depthai-model-zoo?color=blue&style=flat-square&label=LICENSE)](https://github.com/luxonis/yolo2openvino/blob/main/LICENSE)  [![stars](https://img.shields.io/github/stars/luxonis?affiliations=OWNER&label=LUXONIS%20STARS&style=flat-square)](https://github.com/luxonis)  [![web-interface](https://img.shields.io/static/v1?label=MORE&message=TUTORIALS&color=orange&style=flat-square)](https://github.com/luxonis/depthai-ml-training/)
 
 ![Logo](https://user-images.githubusercontent.com/56075061/142620908-580e2e06-eeb8-4222-a55f-b428cf76bd3d.png)
